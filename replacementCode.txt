@@ -1,0 +1,21 @@
+VULNERABILITY FINDINGS REPORT
+
+PHP Code Lines:
+Line 1: <?php
+Line 2: $name = $_GET['name'];
+Line 3: echo('Hello ' . $name);
+Line 4: $id = $_POST['id'];
+Line 5: mysql_query("SELECT user FROM users WHERE id = " . $id);
+Line 6: $cmd = $_COOKIE['cmd'];
+Line 7: exec("cat /var/log/apache2/access.log | grep " . $cmd);
+Line 8: $words = split(":", "split:this");
+Line 9: 
+Line 10: 
+
+Vulnerable Functions Found:
+mysql_query
+Possible Replacement: $mysqli->query($query)
+exec
+Possible Replacement: shell_exec($cmd)
+
+The PHP code contains vulnerable functions.
